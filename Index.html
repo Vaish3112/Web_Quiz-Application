@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="quiz-container">
+                       
+         <!-- Login Page -->
+            <div id="login-page">
+                <h1>Quiz time!</h1>
+                <h3> "Ready to put your brain to the test? Let’s see how well you know the world around you!"</h3>
+                <div class="input-container">
+                  <input type="text" id="username" placeholder="Enter your username" class="username-input" 
+                   onfocus="onFocusEffect()" onblur="onBlurEffect()" required>
+                </div>
+                <button id="login-btn" class="login-btn">Login</button>
+            </div>
+
+        <!-- Guidelines Page -->
+        <div id="guidelines-page" class="hidden">
+            <h1>Welcome!</h1>
+            <p>Please read the following guidelines before starting the quiz:</p>
+            <ul>
+                <li>You have 10 seconds for each question.</li>
+                <li>You can only select one option per question.</li>
+                <li>You can't select any option once the timer goes off</li>
+                <li>Once you move to the next question, you cannot go back.</li>
+                <li>Your final score will be displayed at the end.</li>
+                <li>Make sure to answer all questions for the best score!</li>
+                </ul><br>
+            <button id="start-quiz-btn" class="start-quiz-btn">Start Quiz</button>
+        </div>
+        
+        <!-- Quiz Page -->
+        <div id="quiz-page" class="hidden">
+            <h1>Let’s get started!</h1>
+            <div id="progress-container">
+                 <div id="progress-bar"></div>
+            </div>
+            <div id="quiz">
+              <div id="timer" style="margin-bottom: 20px; font-size: 18px; font-weight: bold;">Time left: 10s</div>
+              <div id="question-container"></div>
+                <div class="options">
+                <button class="option-btn" onclick="selectAnswer(0)">Option 1</button>
+                <button class="option-btn" onclick="selectAnswer(1)">Option 2</button>
+                <button class="option-btn" onclick="selectAnswer(2)">Option 3</button>
+                <button class="option-btn" onclick="selectAnswer(3)">Option 4</button>
+                </div>
+            </div>
+            <p id="feedback" class="hidden"></p>
+            <p id="explanation" class="hidden"></p>
+           <button id="next-btn" onclick="nextQuestion()">Next</button>
+            <div id="result" style="display: none;">
+            <h3>"Thank you for taking the quiz! We hope you enjoyed the experience—stay curious and keep learning!"</h3>
+            <p id="score"></p>
+            <button onclick="restartQuiz()">Restart</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
